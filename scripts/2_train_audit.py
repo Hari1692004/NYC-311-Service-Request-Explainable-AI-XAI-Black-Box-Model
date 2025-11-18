@@ -47,7 +47,7 @@ def load_data(parquet_path, sample_size):
         # 1. SCAN the file (no data is loaded)
         lazy_df = pl.scan_parquet(parquet_path)
     except FileNotFoundError:
-        print(f"--- ❌ ERROR ---")
+        print(f"--- ERROR ---")
         print(f"File not found: {parquet_path}")
         print("Please run the '1_process_raw_data.py' script first.")
         sys.exit(1)
@@ -176,7 +176,7 @@ def main():
     run_shap_audit(model, X_test, AUDIT_PLOT_PATH)
     
     print("\n-------------------------------------------------")
-    print(f"✅ Success! Layer 2 is complete.")
+    print(f"Success! Layer 2 is complete.")
     print(f"Model saved to: {MODEL_PATH}")
     print(f"Audit plot saved to: {AUDIT_PLOT_PATH}")
     print("-------------------------------------------------")
